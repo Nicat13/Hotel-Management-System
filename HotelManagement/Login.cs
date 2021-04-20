@@ -33,13 +33,13 @@ namespace HotelManagement
 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(emailtxtbox.Text) || string.IsNullOrEmpty(passtxtbox.Text))
+            if (string.IsNullOrEmpty(emailtxtbox.Text.Trim()) || string.IsNullOrEmpty(passtxtbox.Text.Trim()))
             {
                 loginpanel.Visible = true;
                 loginerrorlabel.Text = "Fill all fields";
                 return;
             }
-            int userId = accountRepository.Login(emailtxtbox.Text, passtxtbox.Text);
+            int userId = accountRepository.Login(emailtxtbox.Text.Trim(), passtxtbox.Text.Trim());
             if (userId != 0)
             {
                 if (checkRemember.Checked)

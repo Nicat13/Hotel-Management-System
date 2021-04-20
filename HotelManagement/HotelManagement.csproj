@@ -114,6 +114,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Hotel.entity.Models.AppUsers.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -131,6 +132,10 @@
     <ProjectReference Include="..\Hotel.data\Hotel.data.csproj">
       <Project>{ecf6f1cb-cc4f-4979-9c19-eba6b0a76fd0}</Project>
       <Name>Hotel.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotel.entity\Hotel.entity.csproj">
+      <Project>{4BD464D7-D472-4997-8427-02668FA6081F}</Project>
+      <Name>Hotel.entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
