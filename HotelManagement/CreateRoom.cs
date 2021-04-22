@@ -116,7 +116,6 @@ namespace HotelManagement
         {
             ClearTextBoxes(this.Controls);
             this.roomdatagrid.ClearSelection();
-            roomdatagrid.CurrentCell.Selected = false;
             editcreatebtn.Text = "Create";
             clearbtn.Enabled = false;
             roomtype.SelectedIndex = 0;
@@ -137,9 +136,9 @@ namespace HotelManagement
                 {
                     RoomNo = roomnametxtbox.Text,
                     RoomPrice = Convert.ToDecimal(roompricetxtbox.Text),
-                    Discount = Convert.ToInt32(discounttxtbox.Text),
                     NumberOfBeds = Convert.ToInt32(bedsnumbertxtbox.Text),
-                    NumberOfChildBeds = Convert.ToInt32(childbedstxtbox.Text),
+                    Discount = string.IsNullOrEmpty(discounttxtbox.Text) ? 0 : Convert.ToInt32(discounttxtbox.Text),
+                    NumberOfChildBeds = string.IsNullOrEmpty(childbedstxtbox.Text) ? 0 : Convert.ToInt32(childbedstxtbox.Text),
                     FloorNumber = Convert.ToInt32(floornumbertxtbox.Text),
                     RoomTypesId = (int)roomtype.SelectedValue,
                     RoomStatusId = (int)roomstatus.SelectedValue
@@ -168,6 +167,7 @@ namespace HotelManagement
                             room.Img = imgresponse.obj.ToString();
                         }
                     }
+
                     roomRepository.AddRoom(room);
                     MessageBox.Show("Room Created", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

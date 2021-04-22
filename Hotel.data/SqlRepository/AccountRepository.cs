@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Hotel.data.StructModel;
+using Hotel.entity.Utilities;
 
 namespace Hotel.data.SqlRepository
 {
@@ -23,15 +24,15 @@ namespace Hotel.data.SqlRepository
             AppUsers appUser = _context.AppUsers.FirstOrDefault(x => x.FIN == user.FIN);
             if (appUser == null)
             {
-                if (_context.AppUsers.Any(x => x.Email == user.Email))
+                if (_context.AppUsers.Any(x =>x.FIN!=user.FIN&& x.Email == user.Email))
                 {
                     return new AddUpdateResponseModel { Message = "Email Already Exist", Status = false };
                 }
-                else if (_context.AppUsers.Any(x => x.PhoneNumber == user.PhoneNumber))
+                else if (_context.AppUsers.Any(x => x.FIN != user.FIN && x.PhoneNumber == user.PhoneNumber))
                 {
                     return new AddUpdateResponseModel { Message = "Phonenumber Already Exist", Status = false };
                 }
-                user.Password = HashPassword(user.Password);
+                user.Password = user.Password.HashPassword();
                 _context.AppUsers.Add(user);
                 _context.SaveChanges();
                 return new AddUpdateResponseModel { Message = "ok", Status = true };
@@ -78,17 +79,11 @@ namespace Hotel.data.SqlRepository
             return _context.AppUsers.FirstOrDefault(u => u.Id == userId);
         }
 
-        public string HashPassword(string password)
-        {
-            var bytes = new UTF8Encoding().GetBytes(password);
-            var hashBytes = System.Security.Cryptography.MD5.Create().ComputeHash(bytes);
-            string hashedpass = Convert.ToBase64String(hashBytes);
-            return hashedpass;
-        }
+  
 
         public int Login(string email, string password)
         {
-            string hashedpass = HashPassword(password);
+            string hashedpass = password.HashPassword();
             AppUsers user = _context.AppUsers.FirstOrDefault(x => x.Email == email && x.Password == hashedpass);
             if (user != null)
             {
@@ -104,11 +99,11 @@ namespace Hotel.data.SqlRepository
                 AppUsers appUser = _context.AppUsers.FirstOrDefault(x => x.FIN == user.FIN);
                 if (appUser != null)
                 {
-                    if (_context.AppUsers.Any(x=>x.Email==user.Email))
+                    if (_context.AppUsers.Any(x=> x.FIN != user.FIN && x.Email==user.Email))
                     {
                         return new AddUpdateResponseModel { Message = "Email Already Exist", Status = false };
                     }
-                    else if (_context.AppUsers.Any(x => x.PhoneNumber == user.PhoneNumber))
+                    else if (_context.AppUsers.Any(x => x.FIN != user.FIN && x.PhoneNumber == user.PhoneNumber))
                     {
                         return new AddUpdateResponseModel { Message = "Phonenumber Already Exist", Status = false };
                     }
@@ -119,7 +114,7 @@ namespace Hotel.data.SqlRepository
                     appUser.rolesId = user.rolesId;
                     if (!string.IsNullOrEmpty(user.Password.Trim()))
                     {
-                        appUser.Password = HashPassword(user.Password);
+                        appUser.Password = user.Password.HashPassword();
                     }
                     _context.SaveChanges();
                     return new AddUpdateResponseModel {Message="ok",Status=true };
@@ -134,7 +129,7 @@ namespace Hotel.data.SqlRepository
 
         public int Userauthenticator(int userId, string password)
         {
-            string hashedpass = HashPassword(password);
+            string hashedpass = password.HashPassword();
             AppUsers user = _context.AppUsers.FirstOrDefault(x => x.Id == userId && x.Password == hashedpass);
             if (user != null)
             {

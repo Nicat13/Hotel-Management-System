@@ -12,7 +12,6 @@ namespace Hotel.data.IRepository
     {
         int Login(string email, string password);
         int Userauthenticator(int userId, string password);
-        string HashPassword(string password);
         List<AppUsers> GetAppUsers();
         List<Roles> GetRoles();
         AppUsers GetUserByid(int userId);

@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class last : DbMigration
+    public partial class genderr : DbMigration
     {
         public override void Up()
         {
@@ -44,6 +44,7 @@
                         Name = c.String(),
                         Surname = c.String(),
                         Img = c.String(),
+                        Gender = c.String(),
                         PhoneNumber = c.String(),
                         FIN = c.String(nullable: false, maxLength: 7),
                         Password = c.String(),

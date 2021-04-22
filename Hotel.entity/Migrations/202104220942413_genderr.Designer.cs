@@ -7,13 +7,13 @@ namespace Hotel.entity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class last : IMigrationMetadata
+    public sealed partial class genderr : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(last));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(genderr));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104212251000_last"; }
+            get { return "202104220942413_genderr"; }
         }
         
         string IMigrationMetadata.Source

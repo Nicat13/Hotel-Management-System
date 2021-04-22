@@ -48,17 +48,6 @@ namespace HotelManagement
             usernamelabel.Text ="Hello-"+ accountRepository.GetUserByid(userId).Name;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //JsonResponseModel imgresponse = fileRepo.UploadImage(pictureBox1.ImageLocation);
-            //if (!string.IsNullOrEmpty(imgresponse.obj.ToString()))
-            //{
-            //    textBox1.Text = "okk";
-            //    //pictureBox1.Load($"{ConfigurationManager.AppSettings["ApiUrl"]}/img/{imgurl}");
-            //    return;
-            //}
-            //textBox1.Text = imgresponse.message;
-        }
 
         private void createnewuserbtn_Click(object sender, EventArgs e)
         {
@@ -92,6 +81,31 @@ namespace HotelManagement
             AddRoom addRoom = new AddRoom();
             this.Hide();
             addRoom.Show();
+        }
+
+        private void userpicture_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show($"Log Out?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.Show();
+            }
+        }
+
+        private void customerbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ControlCustomers customers = new ControlCustomers();
+            customers.Show();
+        }
+
+        private void reservationsbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ReservationControl reservation = new ReservationControl();
+            reservation.Show();
         }
     }
 }

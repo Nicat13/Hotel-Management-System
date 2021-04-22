@@ -73,7 +73,6 @@ namespace HotelManagement
         {
             ClearTextBoxes(this.Controls);
             this.userdatagrid.ClearSelection();
-            userdatagrid.CurrentCell.Selected = false;
             fintxtbox.Enabled = true;
             editcreateuserbtn.Text = "Create";
             rolecombobox.SelectedIndex = 0;

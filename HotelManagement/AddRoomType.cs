@@ -67,7 +67,6 @@ namespace HotelManagement
         {
             typenametxtbox.Text = String.Empty;
             this.typedatagrid.ClearSelection();
-            typedatagrid.CurrentCell.Selected = false;
             editcreatebtn.Text = "Create";
             clearbtn.Enabled = false;
             isEdit = false;
