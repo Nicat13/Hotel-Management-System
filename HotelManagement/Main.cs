@@ -30,21 +30,22 @@ namespace HotelManagement
             accountRepository= (IAccountRepository)Program.ServiceProvider.GetService(typeof(IAccountRepository));
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Jpeg File (*.jpg)|*.jpg|Gif File (*.gif)|*.gif|Png File (*.png)|*.png|Tif File (*.tif)|*.tif";
-            var dialogResult = openFileDialog.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    var openFileDialog = new OpenFileDialog();
+        //    openFileDialog.Filter = "Jpeg File (*.jpg)|*.jpg|Gif File (*.gif)|*.gif|Png File (*.png)|*.png|Tif File (*.tif)|*.tif";
+        //    var dialogResult = openFileDialog.ShowDialog();
+        //    if (dialogResult == DialogResult.OK)
+        //    {
 
-            }
+        //    }
 
-        }
+        //}
 
 
         private void Main_Load(object sender, EventArgs e)
         {
+            usernamelabel.Text ="Hello-"+ accountRepository.GetUserByid(userId).Name;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -79,6 +80,18 @@ namespace HotelManagement
             }
                 MessageBox.Show("Type Password");
             return;
+        }
+
+        private void Roomsbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addroombtn_Click(object sender, EventArgs e)
+        {
+            AddRoom addRoom = new AddRoom();
+            this.Hide();
+            addRoom.Show();
         }
     }
 }

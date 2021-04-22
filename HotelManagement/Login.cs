@@ -52,6 +52,8 @@ namespace HotelManagement
                     Properties.Settings.Default.Email = null;
                     Properties.Settings.Default.Save();
                 }
+                Properties.Settings.Default.UserId = userId;
+                Properties.Settings.Default.Save();
                 this.Hide();
                 Main main = new Main(userId);
                 main.ShowDialog();

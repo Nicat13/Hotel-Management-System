@@ -34,5 +34,17 @@ namespace HotelManagement.Properties {
                 this["Email"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UserId {
+            get {
+                return ((int)(this["UserId"]));
+            }
+            set {
+                this["UserId"] = value;
+            }
+        }
     }
 }

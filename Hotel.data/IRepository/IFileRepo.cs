@@ -10,7 +10,7 @@ namespace Hotel.data.IRepository
     public interface IFileRepo
     {
         JsonResponseModel UploadImage(string fileName);
-        string EditImage(string fileName,string oldFileName);
+        JsonResponseModel EditImage(string fileName,string oldFileName);
         bool RemoveFile(string fileName);
     }
 }

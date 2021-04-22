@@ -13,7 +13,7 @@ namespace Hotel.data.SqlRepository
 {
     public class Filerepo : IFileRepo
     {
-        public string EditImage(string fileName, string oldFileName)
+        public JsonResponseModel EditImage(string fileName, string oldFileName)
         {
             var client = new RestClient(ConfigurationManager.AppSettings["ApiUrl"]);
             var request = new RestRequest("/api/File/EditFile");
@@ -22,12 +22,8 @@ namespace Hotel.data.SqlRepository
             request.AddFile("File", fileName);
             var response = client.Post(request);
             JsonResponseModel res = JsonConvert.DeserializeObject<JsonResponseModel>(response.Content);
-            if (res != null && res.obj != null)
-            {
-                return res.obj.ToString();
-            }
 
-            return String.Empty;
+            return res;
         }
 
         public bool RemoveFile(string fileName)

@@ -1,4 +1,5 @@
-﻿using Hotel.entity.Models;
+﻿using Hotel.data.StructModel;
+using Hotel.entity.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,8 @@ namespace Hotel.data.IRepository
         List<AppUsers> GetAppUsers();
         List<Roles> GetRoles();
         AppUsers GetUserByid(int userId);
-        bool? UpdateUser(AppUsers user);
-        bool AddUser(AppUsers user);
+        AddUpdateResponseModel UpdateUser(AppUsers user);
+        AddUpdateResponseModel AddUser(AppUsers user);
         bool DeleteUser(int userId);
 
     }

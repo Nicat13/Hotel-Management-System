@@ -117,21 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="appUsersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="backbtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAEBSURBVEhL1ZbLCsIwEEX7BboQFXyA4kr9MD+yrU3aVBTc+VioG3Wj/oRO4I6LUhcydcADs2ku
-        OaSdJA3+Amtt32RmbzNrwjCs43G1QHKievoi2ZKoYbgakiTpmdQcWfKWOTtDRE68iLtlEqpdtIoaiMmI
-        llGbJtwXBL4OzrkOYjIg2RUET786v0rEZHyUZOZM32uAmIw8z1s0YZnkQp03REwGJNuCwNc1zuMRYjIg
-        2RQEvm60kjFiMtI0bdKEZZI7jU0Qk0O7fF0ieczdfIpINaiJ1F6dR6UZGJX2ZlQ2LKNyBDEqhyqjck0w
-        Khcfo3KVMyo/JwxkvkGSn/1ufUcQvAA2CA5pdkHqDQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAQFJREFUSEvV
+        lssKwjAQRfsFuhAVfIDiSv0wP7KtTdpUFNz5WKgbdaP+hE7gjotSFzJ1wAOzaS45pJ0kDf4Ca23fZGZv
+        M2vCMKzjcbVAcqJ6+iLZkqhhuBqSJOmZ1BxZ8pY5O0NETryIu2USql20ihqIyYiWUZsm3BcEvg7OuQ5i
+        MiDZFQRPvzq/SsRkfJRk5kzfa4CYjDzPWzRhmeRCnTdETAYk24LA1zXO4xFiMiDZFAS+brSSMWIy0jRt
+        0oRlkjuNTRCTQ7t8XSJ5zN18ikg1qInUXp1HpRkYlfZmVDYso3IEMSqHKqNyTTAqFx+jcpUzKj8nDGS+
+        QZKf/W59RxC8ADYIDml2QeoNAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

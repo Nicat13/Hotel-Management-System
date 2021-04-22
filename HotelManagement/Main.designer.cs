@@ -33,10 +33,13 @@ namespace HotelManagement
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Roomsbtn = new System.Windows.Forms.Button();
             this.createnewuserbtn = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.usernamelabel = new System.Windows.Forms.Label();
+            this.addroombtn = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button4
@@ -50,7 +53,7 @@ namespace HotelManagement
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
-            this.button4.Location = new System.Drawing.Point(542, 203);
+            this.button4.Location = new System.Drawing.Point(542, 181);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(194, 174);
             this.button4.TabIndex = 2;
@@ -69,7 +72,7 @@ namespace HotelManagement
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
-            this.button3.Location = new System.Drawing.Point(309, 203);
+            this.button3.Location = new System.Drawing.Point(309, 181);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(194, 174);
             this.button3.TabIndex = 1;
@@ -89,7 +92,7 @@ namespace HotelManagement
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
-            this.button5.Location = new System.Drawing.Point(775, 203);
+            this.button5.Location = new System.Drawing.Point(775, 181);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(194, 174);
             this.button5.TabIndex = 3;
@@ -97,25 +100,25 @@ namespace HotelManagement
             this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // Roomsbtn
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(15)))), ((int)(((byte)(76)))));
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
-            this.button2.Location = new System.Drawing.Point(75, 203);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(194, 174);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Helo";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Roomsbtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Roomsbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(15)))), ((int)(((byte)(76)))));
+            this.Roomsbtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Roomsbtn.BackgroundImage")));
+            this.Roomsbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Roomsbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Roomsbtn.FlatAppearance.BorderSize = 0;
+            this.Roomsbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Roomsbtn.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Roomsbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
+            this.Roomsbtn.Location = new System.Drawing.Point(75, 181);
+            this.Roomsbtn.Name = "Roomsbtn";
+            this.Roomsbtn.Size = new System.Drawing.Size(194, 174);
+            this.Roomsbtn.TabIndex = 0;
+            this.Roomsbtn.Text = "Rooms";
+            this.Roomsbtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Roomsbtn.UseVisualStyleBackColor = false;
+            this.Roomsbtn.Click += new System.EventHandler(this.Roomsbtn_Click);
             // 
             // createnewuserbtn
             // 
@@ -128,7 +131,7 @@ namespace HotelManagement
             this.createnewuserbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createnewuserbtn.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createnewuserbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
-            this.createnewuserbtn.Location = new System.Drawing.Point(75, 518);
+            this.createnewuserbtn.Location = new System.Drawing.Point(75, 496);
             this.createnewuserbtn.Name = "createnewuserbtn";
             this.createnewuserbtn.Size = new System.Drawing.Size(257, 65);
             this.createnewuserbtn.TabIndex = 4;
@@ -136,61 +139,88 @@ namespace HotelManagement
             this.createnewuserbtn.UseVisualStyleBackColor = false;
             this.createnewuserbtn.Click += new System.EventHandler(this.createnewuserbtn_Click);
             // 
-            // button7
+            // pictureBox1
             // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(15)))), ((int)(((byte)(76)))));
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
-            this.button7.Location = new System.Drawing.Point(383, 518);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(279, 65);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "Helo";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button7.UseVisualStyleBackColor = false;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(968, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
-            // button8
+            // usernamelabel
             // 
-            this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(15)))), ((int)(((byte)(76)))));
-            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
-            this.button8.Location = new System.Drawing.Point(690, 518);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(279, 65);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "Helo";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button8.UseVisualStyleBackColor = false;
+            this.usernamelabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernamelabel.AutoSize = true;
+            this.usernamelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernamelabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
+            this.usernamelabel.Location = new System.Drawing.Point(972, 72);
+            this.usernamelabel.Name = "usernamelabel";
+            this.usernamelabel.Size = new System.Drawing.Size(75, 17);
+            this.usernamelabel.TabIndex = 8;
+            this.usernamelabel.Text = "UserName";
+            // 
+            // addroombtn
+            // 
+            this.addroombtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addroombtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(15)))), ((int)(((byte)(76)))));
+            this.addroombtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addroombtn.BackgroundImage")));
+            this.addroombtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addroombtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addroombtn.FlatAppearance.BorderSize = 0;
+            this.addroombtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addroombtn.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addroombtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
+            this.addroombtn.Location = new System.Drawing.Point(394, 496);
+            this.addroombtn.Name = "addroombtn";
+            this.addroombtn.Size = new System.Drawing.Size(257, 65);
+            this.addroombtn.TabIndex = 9;
+            this.addroombtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.addroombtn.UseVisualStyleBackColor = false;
+            this.addroombtn.Click += new System.EventHandler(this.addroombtn_Click);
+            // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(15)))), ((int)(((byte)(76)))));
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
+            this.button6.Location = new System.Drawing.Point(712, 496);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(257, 65);
+            this.button6.TabIndex = 10;
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // Main
             // 
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(0)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(1044, 606);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.addroombtn);
+            this.Controls.Add(this.usernamelabel);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.createnewuserbtn);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Roomsbtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -200,10 +230,12 @@ namespace HotelManagement
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button Roomsbtn;
         private System.Windows.Forms.Button createnewuserbtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label usernamelabel;
+        private System.Windows.Forms.Button addroombtn;
+        private System.Windows.Forms.Button button6;
     }
 }
 

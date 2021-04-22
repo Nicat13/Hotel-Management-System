@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,10 @@ namespace Hotel.entity.Models
         public virtual RoomStatus RoomStatus { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
         public virtual ICollection<RoomImages> RoomImages { get; set; }
+        [NotMapped]
+        public string Type { get; set; }
+        [NotMapped]
+        public string Status { get; set; }
 
     }
 }

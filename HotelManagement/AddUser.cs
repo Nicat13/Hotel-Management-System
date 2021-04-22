@@ -1,4 +1,5 @@
 ﻿using Hotel.data.IRepository;
+using Hotel.data.StructModel;
 using Hotel.entity.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,6 @@ namespace HotelManagement
             InitializeComponent();
             this.userId = userId;
             accountRepository = (IAccountRepository)Program.ServiceProvider.GetService(typeof(IAccountRepository));
-
         }
 
         private void AddUser_Load(object sender, EventArgs e)
@@ -104,32 +104,31 @@ namespace HotelManagement
             };
             if (isEdit)
             {
-                bool? result = accountRepository.UpdateUser(appUser);
-                if (result != null && result == true)
+                AddUpdateResponseModel result = accountRepository.UpdateUser(appUser);
+                if (result.Status)
                 {
                     MessageBox.Show("User Edited", "Edited", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (result != null && result == false)
-                {
-                    MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
                 else
                 {
-                    MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(result.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             else
             {
                 if (!string.IsNullOrEmpty(passwordtxtbox.Text.Trim()))
                 {
+                    AddUpdateResponseModel result = accountRepository.AddUser(appUser);
 
-                    if (accountRepository.AddUser(appUser))
+                    if (result.Status)
                     {
                         MessageBox.Show("User Created", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("User already exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(result.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
                 else
@@ -146,16 +145,29 @@ namespace HotelManagement
         {
             if (e.ColumnIndex == userdatagrid.Columns["Delete"].Index)
             {
-                if (accountRepository.DeleteUser(Convert.ToInt32(this.userdatagrid.Rows[e.RowIndex].Cells[0].Value)))
+                DialogResult dialogResult = MessageBox.Show($"Delete the {this.userdatagrid.Rows[e.RowIndex].Cells[1].Value+" "+ this.userdatagrid.Rows[e.RowIndex].Cells[2].Value}?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("User Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (accountRepository.DeleteUser(Convert.ToInt32(this.userdatagrid.Rows[e.RowIndex].Cells[0].Value)))
+                    {
+                        MessageBox.Show("User Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    userdatagrid.DataSource = accountRepository.GetAppUsers();
+                    clearbtn_Click(sender, e);
                 }
-                else
-                {
-                    MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                userdatagrid.DataSource = accountRepository.GetAppUsers();
+ 
             }
+        }
+
+        private void backbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main main = new Main(Properties.Settings.Default.UserId);
+            main.Show();
         }
     }
 }

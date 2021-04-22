@@ -53,6 +53,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
@@ -74,11 +75,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoom.Designer.cs">
+      <DependentUpon>AddRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRoomType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoomType.Designer.cs">
+      <DependentUpon>AddRoomType.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddUser.designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateRoom.Designer.cs">
+      <DependentUpon>CreateRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomForms\Prompt.cs" />
     <Compile Include="Login.cs">
@@ -95,8 +114,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddRoom.resx">
+      <DependentUpon>AddRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRoomType.resx">
+      <DependentUpon>AddRoomType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateRoom.resx">
+      <DependentUpon>CreateRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -115,6 +143,9 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Hotel.entity.Models.AppUsers.datasource" />
+    <None Include="Properties\DataSources\Hotel.entity.Models.Roles.datasource" />
+    <None Include="Properties\DataSources\Hotel.entity.Models.Room.datasource" />
+    <None Include="Properties\DataSources\Hotel.entity.Models.RoomTypes.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

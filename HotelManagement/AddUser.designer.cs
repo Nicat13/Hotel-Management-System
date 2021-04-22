@@ -30,6 +30,7 @@ namespace HotelManagement
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
             this.usernametxtbox = new System.Windows.Forms.TextBox();
             this.fintxtbox = new System.Windows.Forms.TextBox();
             this.emailtxtbox = new System.Windows.Forms.TextBox();
@@ -38,6 +39,14 @@ namespace HotelManagement
             this.passwordtxtbox = new System.Windows.Forms.TextBox();
             this.rolecombobox = new System.Windows.Forms.ComboBox();
             this.userdatagrid = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.appUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.editcreateuserbtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,14 +57,7 @@ namespace HotelManagement
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.clearbtn = new System.Windows.Forms.Button();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.backbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.userdatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appUsersBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -176,6 +178,72 @@ namespace HotelManagement
             this.userdatagrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userdatagrid_CellContentClick);
             this.userdatagrid.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.userdatagrid_RowStateChanged);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // surnameDataGridViewTextBoxColumn
+            // 
+            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
+            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
+            this.surnameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fINDataGridViewTextBoxColumn
+            // 
+            this.fINDataGridViewTextBoxColumn.DataPropertyName = "FIN";
+            this.fINDataGridViewTextBoxColumn.HeaderText = "FIN";
+            this.fINDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fINDataGridViewTextBoxColumn.Name = "fINDataGridViewTextBoxColumn";
+            this.fINDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roleNameDataGridViewTextBoxColumn
+            // 
+            this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
+            this.roleNameDataGridViewTextBoxColumn.HeaderText = "RoleName";
+            this.roleNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
+            this.roleNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
             // appUsersBindingSource
             // 
             this.appUsersBindingSource.DataSource = typeof(Hotel.entity.Models.AppUsers);
@@ -291,71 +359,20 @@ namespace HotelManagement
             this.clearbtn.UseVisualStyleBackColor = false;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
-            // idDataGridViewTextBoxColumn
+            // backbtn
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // surnameDataGridViewTextBoxColumn
-            // 
-            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
-            this.surnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fINDataGridViewTextBoxColumn
-            // 
-            this.fINDataGridViewTextBoxColumn.DataPropertyName = "FIN";
-            this.fINDataGridViewTextBoxColumn.HeaderText = "FIN";
-            this.fINDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fINDataGridViewTextBoxColumn.Name = "fINDataGridViewTextBoxColumn";
-            this.fINDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roleNameDataGridViewTextBoxColumn
-            // 
-            this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
-            this.roleNameDataGridViewTextBoxColumn.HeaderText = "RoleName";
-            this.roleNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
-            this.roleNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.ToolTipText = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
+            this.backbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(15)))), ((int)(((byte)(76)))));
+            this.backbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(15)))), ((int)(((byte)(76)))));
+            this.backbtn.FlatAppearance.BorderSize = 0;
+            this.backbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backbtn.Image = ((System.Drawing.Image)(resources.GetObject("backbtn.Image")));
+            this.backbtn.Location = new System.Drawing.Point(13, 12);
+            this.backbtn.Name = "backbtn";
+            this.backbtn.Size = new System.Drawing.Size(86, 51);
+            this.backbtn.TabIndex = 19;
+            this.backbtn.UseVisualStyleBackColor = false;
+            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
             // AddUser
             // 
@@ -363,6 +380,7 @@ namespace HotelManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(0)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(1451, 722);
+            this.Controls.Add(this.backbtn);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -419,5 +437,6 @@ namespace HotelManagement
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Button backbtn;
     }
 }

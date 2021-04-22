@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.data.StructModel;
 
 namespace Hotel.data.SqlRepository
 {
@@ -17,17 +18,25 @@ namespace Hotel.data.SqlRepository
             _context = new HotelDB();
         }
 
-        public bool AddUser(AppUsers user)
+        public AddUpdateResponseModel AddUser(AppUsers user)
         {
             AppUsers appUser = _context.AppUsers.FirstOrDefault(x => x.FIN == user.FIN);
             if (appUser == null)
             {
+                if (_context.AppUsers.Any(x => x.Email == user.Email))
+                {
+                    return new AddUpdateResponseModel { Message = "Email Already Exist", Status = false };
+                }
+                else if (_context.AppUsers.Any(x => x.PhoneNumber == user.PhoneNumber))
+                {
+                    return new AddUpdateResponseModel { Message = "Phonenumber Already Exist", Status = false };
+                }
                 user.Password = HashPassword(user.Password);
                 _context.AppUsers.Add(user);
                 _context.SaveChanges();
-                return true;
+                return new AddUpdateResponseModel { Message = "ok", Status = true };
             }
-            return false;
+            return new AddUpdateResponseModel { Message = "FIN Already Exist", Status = false };
         }
 
         public bool DeleteUser(int userId)
@@ -88,13 +97,21 @@ namespace Hotel.data.SqlRepository
             return 0;
         }
 
-        public bool? UpdateUser(AppUsers user)
+        public AddUpdateResponseModel UpdateUser(AppUsers user)
         {
             try
             {
                 AppUsers appUser = _context.AppUsers.FirstOrDefault(x => x.FIN == user.FIN);
                 if (appUser != null)
                 {
+                    if (_context.AppUsers.Any(x=>x.Email==user.Email))
+                    {
+                        return new AddUpdateResponseModel { Message = "Email Already Exist", Status = false };
+                    }
+                    else if (_context.AppUsers.Any(x => x.PhoneNumber == user.PhoneNumber))
+                    {
+                        return new AddUpdateResponseModel { Message = "Phonenumber Already Exist", Status = false };
+                    }
                     appUser.Name = user.Name;
                     appUser.Surname = user.Surname;
                     appUser.Email = user.Email;
@@ -105,13 +122,13 @@ namespace Hotel.data.SqlRepository
                         appUser.Password = HashPassword(user.Password);
                     }
                     _context.SaveChanges();
-                    return true;
+                    return new AddUpdateResponseModel {Message="ok",Status=true };
                 }
-                return null;
+                return new AddUpdateResponseModel { Message = "User not found", Status = false };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                return new AddUpdateResponseModel { Message = ex.Message, Status = false };
             }
         }
 

@@ -55,6 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\HotelDB.cs" />
+    <Compile Include="Migrations\202104212251000_last.cs" />
+    <Compile Include="Migrations\202104212251000_last.designer.cs">
+      <DependentUpon>202104212251000_last.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdditionalServices.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AppUsers.cs" />
@@ -73,6 +78,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104212251000_last.resx">
+      <DependentUpon>202104212251000_last.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
