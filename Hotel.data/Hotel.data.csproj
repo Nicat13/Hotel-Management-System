@@ -84,14 +84,17 @@
     <Compile Include="IRepository\IAccountRepository.cs" />
     <Compile Include="IRepository\ICustomerRepository.cs" />
     <Compile Include="IRepository\IFileRepo.cs" />
+    <Compile Include="IRepository\IReservationRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlRepository\AccountRepository.cs" />
     <Compile Include="SqlRepository\CustomerRepository.cs" />
     <Compile Include="SqlRepository\Filerepo.cs" />
+    <Compile Include="SqlRepository\ReservationRepository.cs" />
     <Compile Include="SqlRepository\RoomRepository.cs" />
     <Compile Include="StructModel\AddUpdateResponseModel.cs" />
     <Compile Include="StructModel\JsonResponseModel.cs" />
+    <Compile Include="StructModel\ReservationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hotel.entity\Hotel.entity.csproj">

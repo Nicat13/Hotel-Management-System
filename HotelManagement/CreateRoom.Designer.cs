@@ -69,6 +69,7 @@ namespace HotelManagement
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Add_Reservation = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.roommainimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomdatagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource5)).BeginInit();
@@ -340,7 +341,8 @@ namespace HotelManagement
             this.imgDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
-            this.Delete});
+            this.Delete,
+            this.Add_Reservation});
             this.roomdatagrid.DataSource = this.roomBindingSource5;
             this.roomdatagrid.Location = new System.Drawing.Point(13, 500);
             this.roomdatagrid.Name = "roomdatagrid";
@@ -458,6 +460,15 @@ namespace HotelManagement
             this.Delete.ToolTipText = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
+            // Add_Reservation
+            // 
+            this.Add_Reservation.HeaderText = "Add_Reservation";
+            this.Add_Reservation.MinimumWidth = 6;
+            this.Add_Reservation.Name = "Add_Reservation";
+            this.Add_Reservation.Text = "Add_Reservation";
+            this.Add_Reservation.ToolTipText = "Add_Reservation";
+            this.Add_Reservation.UseColumnTextForButtonValue = true;
+            // 
             // CreateRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -541,5 +552,6 @@ namespace HotelManagement
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewButtonColumn Add_Reservation;
     }
 }

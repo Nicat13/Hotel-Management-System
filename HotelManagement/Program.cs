@@ -24,6 +24,7 @@ namespace HotelManagement
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IRoomRepository, RoomRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IReservationRepository, ReservationRepository>();
             ServiceProvider = services.BuildServiceProvider();
         }
         [STAThread]

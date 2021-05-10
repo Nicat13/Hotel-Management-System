@@ -147,6 +147,17 @@ namespace HotelManagement
                 }
 
             }
+
+            if (e.ColumnIndex == customerdatagrid.Columns["Add_Reservation"].Index)
+            {
+                DialogResult dialogResult = MessageBox.Show($"Add reservation  the {this.customerdatagrid.Rows[e.RowIndex].Cells[1].Value + " " + this.customerdatagrid.Rows[e.RowIndex].Cells[2].Value}?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    this.Hide();
+                    ReservationControl main = new ReservationControl(this.customerdatagrid.Rows[e.RowIndex].Cells[4].Value.ToString(),null);
+                    main.Show();
+                }
+            }
         }
 
         private void searchbtn_Click(object sender, EventArgs e)

@@ -144,6 +144,7 @@ namespace HotelManagement
             // userpicture
             // 
             this.userpicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.userpicture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.userpicture.Image = ((System.Drawing.Image)(resources.GetObject("userpicture.Image")));
             this.userpicture.Location = new System.Drawing.Point(968, 12);
             this.userpicture.Name = "userpicture";
@@ -157,6 +158,7 @@ namespace HotelManagement
             // 
             this.usernamelabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.usernamelabel.AutoSize = true;
+            this.usernamelabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.usernamelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernamelabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(195)))), ((int)(((byte)(192)))));
             this.usernamelabel.Location = new System.Drawing.Point(972, 72);

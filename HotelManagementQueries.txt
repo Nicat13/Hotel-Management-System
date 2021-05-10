@@ -1,0 +1,82 @@
+LIST BY PAYMENT TYPES:
+
+SELECT PaymentTime,(C.Name+' '+C.Surname) AS CUSTOMERFULLNAME,P.TypeName,C.FIN,C.PhoneNumber,R.CheckInDate,R.CheckOutDate,DAY(R.CheckOutDate-R.CheckInDate-1) AS TOTALNIGHT,(ROOM.RoomPrice*DAY(R.CheckOutDate-R.CheckInDate-1)) as TOTALROOMPRICE,ROOM.RoomNo,ADS.ServiceName,(ADS.ServiceCost*CS.ServiceQuantity) as ServiceCost FROM Transactions T
+LEFT JOIN Reservations R ON T.ReservationId=R.Id
+LEFT JOIN PaymentTypes P ON T.PaymentTypesId=P.Id
+LEFT JOIN Customers C ON R.CustomerId=C.Id
+LEFT JOIN Rooms ROOM ON R.RoomId=ROOM.Id
+LEFT JOIN CustomerServices CS ON R.Id=CS.ReservationId
+LEFT JOIN AdditionalServices ADS ON CS.ServicesId=ADS.Id
+WHERE T.PaymentTypesId=1
+
+
+LIST BY checkin checkout day average:
+
+SELECT PaymentTime, (C.Name+' '+C.Surname) AS CUSTOMERFULLNAME,P.TypeName, C.FIN, C.PhoneNumber, R.CheckInDate, R.CheckOutDate,DAY(R.CheckOutDate-R.CheckInDate-1) AS TOTALNIGHT,(ROOM.RoomPrice*DAY(R.CheckOutDate-R.CheckInDate-1)) as TOTALROOMPRICE, ROOM.RoomNo, ADS.ServiceName, (ADS.ServiceCost*CS.ServiceQuantity) as ServiceCost
+FROM Transactions T
+    LEFT JOIN Reservations R ON T.ReservationId=R.Id
+    LEFT JOIN PaymentTypes P ON T.PaymentTypesId=P.Id
+    LEFT JOIN Customers C ON R.CustomerId=C.Id
+    LEFT JOIN Rooms ROOM ON R.RoomId=ROOM.Id
+    LEFT JOIN CustomerServices CS ON R.Id=CS.ReservationId
+    LEFT JOIN AdditionalServices ADS ON CS.ServicesId=ADS.Id
+WHERE R.CheckInDate>='2021-10-01 00:00:00.000' AND R.CheckOutDate<='2021-10-10 00:00:00.000'
+
+LIST BY CUSTOMER FIN:
+
+SELECT PaymentTime, (C.Name+' '+C.Surname) AS CUSTOMERFULLNAME,P.TypeName, C.FIN, C.PhoneNumber, R.CheckInDate, R.CheckOutDate,DAY(R.CheckOutDate-R.CheckInDate-1) AS TOTALNIGHT,(ROOM.RoomPrice*DAY(R.CheckOutDate-R.CheckInDate-1)) as TOTALROOMPRICE, ROOM.RoomNo, ADS.ServiceName, (ADS.ServiceCost*CS.ServiceQuantity) as ServiceCost
+FROM Transactions T
+    LEFT JOIN Reservations R ON T.ReservationId=R.Id
+    LEFT JOIN PaymentTypes P ON T.PaymentTypesId=P.Id
+    LEFT JOIN Customers C ON R.CustomerId=C.Id
+    LEFT JOIN Rooms ROOM ON R.RoomId=ROOM.Id
+    LEFT JOIN CustomerServices CS ON R.Id=CS.ReservationId
+    LEFT JOIN AdditionalServices ADS ON CS.ServicesId=ADS.Id
+WHERE c.FIN='7236326'	
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+REPORT BY PAYMENTTIME:
+
+SELECT SUM(ROOM.RoomPrice*DAY(R.CheckOutDate-R.CheckInDate-1)) AS TOTALROOMGAIN,SUM(ADS.ServiceCost*CS.ServiceQuantity) AS TOTALSERVICEGAIN
+FROM Transactions T
+    LEFT JOIN Reservations R ON T.ReservationId=R.Id
+    LEFT JOIN Rooms ROOM ON R.RoomId=ROOM.Id
+    LEFT JOIN CustomerServices CS ON R.Id=CS.ReservationId
+    LEFT JOIN AdditionalServices ADS ON CS.ServicesId=ADS.Id
+WHERE T.PaymentTime>='2021-10-09 00:00:00.000' and T.PaymentTime<='2021-12-09 00:00:00.000' GROUP BY T.PaymentTime
+
+REPORT BY ADDITIONALSERVICE ID:
+
+SELECT COUNT(ROOM.Id) AS ROOMCOUNT,SUM(ROOM.RoomPrice*DAY(R.CheckOutDate-R.CheckInDate-1)) AS TOTALROOMGAIN,
+SUM(CS.ServiceQuantity) AS SERVICECOUNT, SUM(ADS.ServiceCost*CS.ServiceQuantity) AS TOTALSERVICEGAIN
+FROM Transactions T
+    LEFT JOIN Reservations R ON T.ReservationId=R.Id
+    LEFT JOIN Rooms ROOM ON R.RoomId=ROOM.Id
+    LEFT JOIN CustomerServices CS ON R.Id=CS.ReservationId
+    LEFT JOIN AdditionalServices ADS ON CS.ServicesId=ADS.Id
+WHERE CS.ServicesId=1 GROUP BY CS.ServicesId
+
+REPORT BY ROOM ID:
+
+SELECT COUNT(ROOM.Id) AS ROOMCOUNT, SUM(ROOM.RoomPrice*DAY(R.CheckOutDate-R.CheckInDate-1)) AS TOTALROOMGAIN,
+    SUM(CS.ServiceQuantity) AS SERVICECOUNT, SUM(ADS.ServiceCost*CS.ServiceQuantity) AS TOTALSERVICEGAIN
+FROM Transactions T
+    LEFT JOIN Reservations R ON T.ReservationId=R.Id
+    LEFT JOIN Rooms ROOM ON R.RoomId=ROOM.Id
+    LEFT JOIN CustomerServices CS ON R.Id=CS.ReservationId
+    LEFT JOIN AdditionalServices ADS ON CS.ServicesId=ADS.Id
+WHERE R.RoomId=6
+GROUP BY R.RoomId
+
+REPORT BY CUSTOMERID:
+
+SELECT COUNT(ROOM.Id) AS ROOMCOUNT, SUM(ROOM.RoomPrice*DAY(R.CheckOutDate-R.CheckInDate-1)) AS TOTALROOMGAIN,
+    SUM(CS.ServiceQuantity) AS SERVICECOUNT, SUM(ADS.ServiceCost*CS.ServiceQuantity) AS TOTALSERVICEGAIN
+FROM Transactions T
+    LEFT JOIN Reservations R ON T.ReservationId=R.Id
+    LEFT JOIN Rooms ROOM ON R.RoomId=ROOM.Id
+    LEFT JOIN CustomerServices CS ON R.Id=CS.ReservationId
+    LEFT JOIN AdditionalServices ADS ON CS.ServicesId=ADS.Id
+WHERE R.CustomerId=3
+GROUP BY R.CustomerId
+

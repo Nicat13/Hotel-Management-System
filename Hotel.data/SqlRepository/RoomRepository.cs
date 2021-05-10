@@ -36,6 +36,17 @@ namespace Hotel.data.SqlRepository
             _context.SaveChanges();
         }
 
+        public bool CheckRoomStatus(int id)
+        {
+            Room room = _context.Rooms.Find(id);
+
+            if (room.RoomStatusId != 2)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public void DeleteRoom(int id)
         {
             Room room = _context.Rooms.Find(id);

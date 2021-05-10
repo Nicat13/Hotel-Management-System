@@ -203,6 +203,24 @@ namespace HotelManagement
                 }
 
             }
+
+            if (e.ColumnIndex == roomdatagrid.Columns["Add_Reservation"].Index)
+            {
+                DialogResult dialogResult = MessageBox.Show($"Add reservation the {this.roomdatagrid.Rows[e.RowIndex].Cells[1].Value}?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (roomRepository.CheckRoomStatus(Convert.ToInt32(this.roomdatagrid.Rows[e.RowIndex].Cells[0].Value)))
+                    {
+                        this.Hide();
+                        ReservationControl main = new ReservationControl(null, (int?)this.roomdatagrid.Rows[e.RowIndex].Cells[0].Value);
+                        main.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Room Status uyğun deyil", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
         }
     }
 }

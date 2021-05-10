@@ -160,6 +160,7 @@
       <DependentUpon>ReservationControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Hotel.data.StructModel.ReservationViewModel.datasource" />
     <None Include="Properties\DataSources\Hotel.entity.Models.AppUsers.datasource" />
     <None Include="Properties\DataSources\Hotel.entity.Models.Customer.datasource" />
     <None Include="Properties\DataSources\Hotel.entity.Models.Roles.datasource" />

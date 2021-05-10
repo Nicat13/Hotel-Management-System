@@ -104,7 +104,7 @@ namespace HotelManagement
         private void reservationsbtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ReservationControl reservation = new ReservationControl();
+            ReservationControl reservation = new ReservationControl(null,null);
             reservation.Show();
         }
     }

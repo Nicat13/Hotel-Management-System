@@ -20,6 +20,6 @@ namespace Hotel.data.IRepository
         void AddRoom(Room room);
         void EditRoom(Room room);
         Room GetRoom(int id);
-
+        bool CheckRoomStatus(int id);
     }
 }
